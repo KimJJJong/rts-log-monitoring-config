@@ -1,0 +1,27 @@
+filebeat.inputs:
+  - type: filestream
+    id: rts-log-json
+    enabled: true
+    paths:
+      - C:/RTS_Server/logs_json/*.json
+    json.keys_under_root: true
+    json.add_error_key: true
+    json.overwrite_keys: true
+    timestamp.field: Timestamp
+    timestamp.layout: '2006-01-02T15:04:05.0000000Z07:00'
+
+processors:
+  - decode_json_fields:
+      fields: ["message"]
+      target: ""
+      overwrite_keys: true
+
+setup.template.name: "gameserver-logs"
+setup.template.pattern: "gameserver-logs-*"
+
+output.elasticsearch:
+  hosts: ["http://localhost:9200"]
+  index: "gameserver-logs-%{+yyyy.MM.dd}"
+
+setup.kibana:
+  host: "http://localhost:5601"

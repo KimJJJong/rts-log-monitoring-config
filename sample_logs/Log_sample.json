@@ -1,0 +1,5 @@
+{"Timestamp":"2025-03-24T13:10:38.5091039Z","Level":0,"Source":"Program","Message":"[Server Start]"}
+{"Timestamp":"2025-03-24T13:11:02.2093039Z","Level":1,"Source":"Matchmaking","Message":"New player joined queue"}
+{"Timestamp":"2025-03-24T13:11:22.8031049Z","Level":2,"Source":"System","Message":"Unexpected disconnect from client 42"}
+{"Timestamp":"2025-03-24T13:12:01.4418041Z","Level":0,"Source":"GameRoom","Message":"Match started between player 12 and 42"}
+{"Timestamp":"2025-03-24T13:13:27.2231039Z","Level":0,"Source":"System","Message":"서버 종료중~~..."}
