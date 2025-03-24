@@ -34,15 +34,9 @@ Filebeat → Elasticsearch → Kibana 구조를 사용하며, 팀원들은 Kiban
    filebeat.exe -e -c filebeat.yml
 PowerShell로 읽기 전용 사용자 생성:
 
-bash
-복사
-편집
 powershell -ExecutionPolicy Bypass -File create_log_reader_user.ps1
 팀원은 브라우저에서 Kibana 접속:
 
-cpp
-복사
-편집
 http://<메인 서버 IP>:5601
 👤 기본 로그인 계정 (읽기 전용)
 ID: viewer_user
