@@ -1,6 +1,7 @@
 # === 사용자 설정 부분 ===
 $elasticUser = "elastic"
-$elasticPassword = "your_elastic_password"
+# 실행 전에 로컬 환경의 실제 값으로 교체하고, 실제 비밀번호는 저장소에 커밋하지 마세요.
+$elasticPassword = "change-me-password"
 $base64Auth = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$elasticUser`:$elasticPassword"))
 
 # === 읽기 전용 역할 생성 ===
@@ -23,7 +24,7 @@ Invoke-RestMethod -Method POST `
   -Headers @{ Authorization = "Basic $base64Auth" } `
   -ContentType "application/json" `
   -Body '{
-    "password": "mypassword",
+    "password": "change-me-password",
     "roles": [ "log_reader" ],
     "full_name": "Read Only User"
   }'

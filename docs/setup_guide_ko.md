@@ -6,8 +6,11 @@
 
 ## ✅ 1. 접속 방법
 
-- 브라우저를 열고 다음 주소 입력:
+브라우저에서 다음 주소를 엽니다.
+
+```text
 http://<메인 서버 IP>:5601
+```
 
 예: `http://192.168.0.100:5601`
 
@@ -15,37 +18,41 @@ http://<메인 서버 IP>:5601
 
 ## ✅ 2. 로그인
 
-- 아이디: `viewer_user`  
-- 비밀번호: `mypassword`
+- 아이디: `viewer_user`
+- 비밀번호: `create_log_reader_user.ps1`에서 설정한 값
 
-(읽기 전용 계정입니다.)
+> 스크립트의 `change-me-password`는 예시 플레이스홀더입니다. 실행 전에 실제 값으로 교체하고, 실제 비밀번호는 저장소에 커밋하지 마세요.
 
 ---
 
 ## ✅ 3. Discover 탭 진입
 
-1. 왼쪽 메뉴에서 **Discover** 클릭  
-2. 처음 접속 시 **Data View 생성** 필요할 수 있음:
-Index pattern: gameserver-logs-* Timestamp field: @timestamp
+1. 왼쪽 메뉴에서 **Discover**를 클릭합니다.
+2. 처음 접속하는 경우 다음 값으로 **Data View**를 생성합니다.
+   - Index pattern: `gameserver-logs-*`
+   - Timestamp field: `@timestamp`
 
 ---
 
 ## ✅ 4. 로그 필터 예시
 
-- **서버 시작 로그 보기**
+서버 시작 로그를 찾는 KQL 예시입니다.
+
 ```kql
 Message.keyword: "[Server Start]"
+```
 
-✅ 5. 필드 추가
-Discover 테이블에 표시할 필드:
-Timestamp
-Source
-Message
-Level
+## ✅ 5. 필드 추가
 
-필드 오른쪽 ➕ 아이콘 클릭하면 테이블에 추가됩니다.
+Discover 테이블에 다음 필드를 추가할 수 있습니다.
 
-✅ 6. 참고
-시간 범위 조절은 오른쪽 위 Time picker에서 "오늘", "마지막 15분" 등을 선택하세요.
+- `Timestamp`
+- `Source`
+- `Message`
+- `Level`
 
-로그가 안 보이면 시간 범위를 늘려보세요.
+필드 오른쪽의 ➕ 아이콘을 클릭하면 테이블에 추가됩니다.
+
+## ✅ 6. 참고
+
+시간 범위는 오른쪽 위 Time picker에서 "오늘", "마지막 15분" 등으로 조절합니다. 로그가 보이지 않으면 조회 범위를 늘려보세요.
